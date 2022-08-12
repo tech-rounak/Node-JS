@@ -1,0 +1,11 @@
+body {
+  background-color: aquamarine;
+}
+#livesearch {
+  width: 168px;
+  border: 1px solid black;
+  background-color: burlywood;
+}
+.hide {
+  display: none;
+}

@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  min-height: 100;
+  background: #f8f8f8;
+  font-family: "Courier New", Courier, monospace;
+  justify-content: center;
+}
+.chat_section {
+  width: 800px;
+  background: #fff;
+  box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
+}
+.brand {
+  display: flex;
+  background: darkcyan;
+}
+.brand h1 {
+  font-size: 20px;
+  color: #444;
+  margin-left: 10px;
+}
+.message_area {
+  height: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+#textarea {
+  width: 97%;
+  font-size: 20px;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+  outline: none;
+}
+.message_area .outgoing {
+  text-align: right;
+  color: green;
+}
+.message_area .incoming {
+  text-align: left;
+  color: red;
+}

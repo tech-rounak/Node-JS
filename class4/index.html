@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+        <ul>
+
+        </ul>
+        <table></table>
+</body>
+<script>
+    function getItem(){
+    // var arr=['RED','GREEN',]
+    var ul = document.querySelector("ul");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode("HELLO"));
+    ul.appendChild(li);
+    // li.appendChil
+    }
+    // getItem();
+    function showData() {
+        var student={"Name":"Rounak","Roll":1,"English":12,"Maths":45};
+        var table=document.querySelector("table");
+        table.border="1px";
+        table.width="600px";
+        table.cellPadding="10px";
+        table.cellSpacing="0px";
+        var tr=document.createElement("tr");
+        var student=JSON.stringify(student);
+        JSON.parse(student,function(key,value){
+            if(key.length!=0){
+            var th=document.createElement("th");
+            th.appendChild(document.createTextNode(key));
+            tr.appendChild(th);
+            }
+        });
+        table.appendChild(tr);
+        tr = document.createElement("tr");
+        // var student = JSON.stringify(student);
+       JSON.parse(student, function (key, value) {
+            if (key.length != 0) {
+                var td = document.createElement("td");
+                td.appendChild(document.createTextNode(value));
+                tr.appendChild(td);
+            }
+        });
+        table.appendChild(tr);
+
+    }
+    showData();
+
+</script>
+</html>

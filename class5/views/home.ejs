@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS</title>
+</head>
+<body>
+    <h1>WELCOME</h1>
+    <table bordercolor="black" cellspacing="0" cellpadding="10" border="3">
+        <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <%data.sub.forEach((item)=>{%>
+            <th>
+                <%=item%>
+            </th>
+        
+            <%})%>
+            <th>Total</th>
+            <th>Average</th>
+        </tr>
+        <tr>
+            <td><%=data.name%></td>
+            <td><%=data.roll%></td>
+            <% var total=0 %>
+            <%data.marks.forEach((item)=>{%>
+                <% total+=item;%>
+                <td><%=item%></td>
+
+            <%})%>
+            <td><%=total%></td>
+            <td><%=total/3%></td>
+        
+        </tr>
+    </table>
+</body>
+</html>

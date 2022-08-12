@@ -1,0 +1,21 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function getJsonData() {
+        return new Promise(function (resolve,reject) {
+            console.log("Fetching Data");
+            setTimeout(() => {
+                $.get('https://jsonplaceholder.typicode.com/posts',function (data){
+                 if(data)
+                    resolve(data);
+                 else
+                  reject("Not Found");
+                })
+            }, 2000);
+        })
+    }
+      getJsonData().then((result) => {
+            console.log(result);
+        }).catch((error) => {
+            console.log(error);
+        })
+</script>
