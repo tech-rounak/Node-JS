@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col">
+                            <h4><b>Shopping Cart</b></h4>
+                        </div>
+                        <div class="col align-self-center text-right text-muted"><%=data.length%> items</div>
+                    </div>
+                </div>
+                <%var total=0%>
+                <% data.forEach((ele)=>{
+                    total+=(ele.price)*(ele.quantity);
+                %>
+
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="/uploadimages/<%=ele.image%>"></div>
+                        <div class="col">
+                            <div class="row text-muted"></div>
+                            <div class="row"><%=ele.iname%></div>
+                        </div>
+                        <div class="col"><%=ele.quantity%></div>
+                        <div class="col">&#8377;<%=ele.price%> </data> 
+                            <a href="/cart/delete/<%=ele.icode%>"><span class="close"><i class="fa fa-remove"></i></span></a>
+                            </div>
+                    </div>
+                </div>
+                <%})%>
+                
+                
+                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            </div>
+            <div class="col-md-4 summary">
+                <div>
+                    <h5><b>Summary</b></h5>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">ITEMS <%=data.length%></div>
+                    <div class="col text-right">&#8377;<%=total%></div>
+                </div>
+                <form>
+                    <p>SHIPPING</p> <select>
+                        <option class="text-muted">Standard-Delivery- &#8377;59</option>
+                    </select>
+                    <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">TOTAL PRICE</div>
+                    <div class="col text-right"><%=total+59%></div>
+                </div> 
+                <a href="/order/checkout?total=<%=total%>"><button class="btn">CHECKOUT</button></a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
